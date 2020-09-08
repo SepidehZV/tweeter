@@ -1,0 +1,15 @@
+header {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: orange;
+  color: white;
+
+}
+header img {
+  background-color:transparent;
+  
+}
