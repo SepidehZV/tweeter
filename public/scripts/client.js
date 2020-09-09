@@ -31,7 +31,7 @@ $(document).ready( () => {
     $('#tweets-container').empty();
     for (let tweet of tweets) {  // loops through tweets
       let $tweet = createTweetElement(tweet);  // calls createTweetElement for each tweet
-      $('#tweets-container').append($tweet);  // takes return value and appends it to the tweets container
+      $('#tweets-container').prepend($tweet);  // takes return value and appends it to the tweets container
     }
   };
   // Test / driver code (temporary). 
@@ -66,7 +66,7 @@ $(document).ready( () => {
     //console.log(evt);
     //console.log(typeof($(this).serialize()));
     //console.log($(this).serialize());
-    console.log($('#tweet-text').val().length);
+    //console.log($('#tweet-text').val().length);
     if ($('#tweet-text').val().length === 0) {
       alert('you cannot submit empty tweet!');
     } else if ($('#tweet-text').val().length > 140) {
@@ -76,8 +76,9 @@ $(document).ready( () => {
         $('#tweet-text').val('');
         $('.counter').val(140).css('color', 'black');
         console.log('tweet posted!');
+        loadTweets();
       }) 
-      loadTweets();
+      
     }
     
   })
