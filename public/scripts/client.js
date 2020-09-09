@@ -59,4 +59,15 @@ $(document).ready( () => {
     }
   ]
   renderTweets(data);
+  
+  $('.new-tweet form').submit( function(evt) {
+    evt.preventDefault();
+    //console.log(evt);
+    console.log(typeof($(this).serialize()));
+    $.post('/tweets', $( this ).serialize()).done( function(data) {
+      $('#tweet-text').empty();
+      console.log('tweet posted!');
+    })
+  })
+  
 })
