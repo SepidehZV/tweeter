@@ -66,12 +66,20 @@ $(document).ready( () => {
     //console.log(evt);
     //console.log(typeof($(this).serialize()));
     //console.log($(this).serialize());
-    $.post('/tweets', $( this ).serialize()).done( function(data) {
-      $('#tweet-text').val('');
-      $('.counter').val(140);
-      console.log('tweet posted!');
-    }) 
-    loadTweets();
+    console.log($('#tweet-text').val().length);
+    if ($('#tweet-text').val().length === 0) {
+      alert('you cannot submit empty tweet!');
+    } else if ($('#tweet-text').val().length > 140) {
+      alert('Your tweet is too long! make it shorter!');
+    } else {
+      $.post('/tweets', $( this ).serialize()).done( function(data) {
+        $('#tweet-text').val('');
+        $('.counter').val(140).css('color', 'black');
+        console.log('tweet posted!');
+      }) 
+      loadTweets();
+    }
+    
   })
   const loadTweets = function() {
     $.ajax('/tweets', { method: 'GET' })
