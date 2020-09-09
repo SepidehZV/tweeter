@@ -1,0 +1,50 @@
+article.tweet {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5em;
+  border: 2px solid #545149;
+  padding: 20px;
+  
+}
+article.tweet:hover {
+  box-shadow: 0 0 30px lightgray;
+}
+article.tweet header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.handle {
+  opacity: 0;
+}
+
+.tweet:hover .handle {
+  opacity: 0.5;
+}
+article.tweet header > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
+article.tweet header img {
+  height: 55px;
+  width: 55px;
+}
+
+article.tweet main {
+  border-bottom: 2px solid #545149;
+
+}
+
+article.tweet footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0;
+}
+
+
