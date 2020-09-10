@@ -32,7 +32,7 @@ body {
   align-self: center;
   
  }
- @media only screen and (min-width: 768px) {
+ @media only screen and (min-width: 1024px) {
   /* Write CSS rules that target Tablets screen sizes upwards - including desktops */
   body {
     color: #545149;
