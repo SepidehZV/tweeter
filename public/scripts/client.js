@@ -7,6 +7,7 @@
 
 $(document).ready( () => {
   console.log("everything is ready!");
+
   const escape =  function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
@@ -40,39 +41,10 @@ $(document).ready( () => {
       $('#tweets-container').prepend($tweet);  // takes return value and appends it to the tweets container
     }
   };
-  // Test / driver code (temporary). 
-  // const data = [
-  //   {
-  //     "user": {
-  //       "name": "Newton",
-  //       "avatars": "https://i.imgur.com/73hZDYK.png"
-  //       ,
-  //       "handle": "@SirIsaac"
-  //     },
-  //     "content": {
-  //       "text": "If I have seen further it is by standing on the shoulders of giants"
-  //     },
-  //     "created_at": 1461116232227
-  //   },
-  //   {
-  //     "user": {
-  //       "name": "Descartes",
-  //       "avatars": "https://i.imgur.com/nlhLi3I.png",
-  //       "handle": "@rd" },
-  //     "content": {
-  //       "text": "Je pense , donc je suis"
-  //     },
-  //     "created_at": 1461113959088
-  //   }
-  // ]
-  // renderTweets(data);
+  
   
   $('.new-tweet form').submit( function(evt) {
     evt.preventDefault();
-    //console.log(evt);
-    //console.log(typeof($(this).serialize()));
-    //console.log($(this).serialize());
-    //console.log($('#tweet-text').val().length);
     if ($('#tweet-text').val().length === 0) {
       const error = '⚠️ Your tweet is empty. Please write some text ⚠️';
       $('#error-message').text(error).css({"border": "2px solid red", "margin": "1.2em", "text": "center"}).hide().slideDown();
@@ -89,31 +61,15 @@ $(document).ready( () => {
       
     }
     
-  })
-  // console.log($('nav a'));
-  // $('nav a').click( function (evt) {
-  //   const $newTweet = `
-  //     <section class='new-tweet'>
-  //       <p id='error-message'></p>
-  //       <form method='POST' action='/tweets'>
-  //         <label for='tweet-text'>What are you humming about?</label>
-  //         <textarea name='text' id='tweet-text'></textarea>
-  //         <div>
-  //           <button type='submit'>Tweet</button>
-  //           <output name='counter' class='counter' for='tweet-text'>140</output>
-  //         </div>
-  //       </form>
-  //     </section> `
-  //   $('.container').prepend($newTweet);
-       
-  // })
+  });
+  
   const loadTweets = function() {
     $.ajax('/tweets', { method: 'GET' })
     .then(function (response) {
       console.log('get request was successful');
       renderTweets(response);
     });
-  }
+  };
   loadTweets();
   
-})
+});
