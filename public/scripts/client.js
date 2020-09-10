@@ -28,7 +28,7 @@ $(document).ready( () => {
         </main>
         <footer>
           <p>${escape(time)}</p>
-          <p>little logos</p>
+          <span class="icons"> <i class="fas fa-flag"> </i> <i class="fas fa-recycle"> </i> <i class="fas fa-heart"> </i> </span>
         </footer>
       </article>`
     return $tweet;
