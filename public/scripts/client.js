@@ -73,9 +73,11 @@ $(document).ready( () => {
     //console.log($(this).serialize());
     //console.log($('#tweet-text').val().length);
     if ($('#tweet-text').val().length === 0) {
-      alert('you cannot submit empty tweet!');
+      const error = '⚠️ Your tweet is empty. Please write some text ⚠️';
+      $('#error-message').text(error).css({"border": "2px solid red"}).hide().slideDown();
     } else if ($('#tweet-text').val().length > 140) {
-      alert('Your tweet is too long! make it shorter!');
+      const error = '⚠️ You have reached your maximum limit of characters allowed ⚠️';
+      $('#error-message').text(error).css({"border": "2px solid red"}).hide().slideDown();
     } else {
       $.post('/tweets', $( this ).serialize()).done( function(data) {
         $('#tweet-text').val('');

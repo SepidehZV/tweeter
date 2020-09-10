@@ -23,3 +23,10 @@
   background-color: #4056A1;
   border: none;
 }
+#error-message {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: red;
+  align-self: center;
+  font-weight: bold;
+  padding: 2mm;
+}
