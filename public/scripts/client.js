@@ -7,21 +7,26 @@
 
 $(document).ready( () => {
   console.log("everything is ready!");
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
   const createTweetElement = function (tweetObj) {
     const $tweet = `
       <article class="tweet">
         <header>
           <div>
-            <img src="${tweetObj.user.avatars}"> 
-            <p>${tweetObj.user.name}</p>
+            <img src="${escape(tweetObj.user.avatars)}"> 
+            <p>${escape(tweetObj.user.name)}</p>
           </div>
-          <a class="handle">${tweetObj.user.handle}</a>
+          <a class="handle">${escape(tweetObj.user.handle)}</a>
         </header>
         <main>
-          <p>${tweetObj.content.text}</p>
+          <p>${escape(tweetObj.content.text)}</p>
         </main>
         <footer>
-          <p>${tweetObj.created_at}</p>
+          <p>${escape(tweetObj.created_at)}</p>
           <p>little logos</p>
         </footer>
       </article>`
