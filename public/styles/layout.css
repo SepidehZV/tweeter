@@ -27,10 +27,25 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
- .container {
-   width: 90%;
+.container {
+  width: 90%;
   align-self: center;
   
-  
-
  }
+ @media only screen and (min-width: 768px) {
+  /* Write CSS rules that target Tablets screen sizes upwards - including desktops */
+  body {
+    color: #545149;
+    background-color: #f4f1ec;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 24px;
+    display: flex;
+    flex-direction: row;
+  }
+  .container {
+    width: 70%;
+    align-self: center;
+    margin: 4em;
+  }
+  
+}

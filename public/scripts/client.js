@@ -74,10 +74,10 @@ $(document).ready( () => {
     //console.log($('#tweet-text').val().length);
     if ($('#tweet-text').val().length === 0) {
       const error = '⚠️ Your tweet is empty. Please write some text ⚠️';
-      $('#error-message').text(error).css({"border": "2px solid red"}).hide().slideDown();
+      $('#error-message').text(error).css({"border": "2px solid red", "margin": "1.2em", "text": "center"}).hide().slideDown();
     } else if ($('#tweet-text').val().length > 140) {
       const error = '⚠️ You have reached your maximum limit of characters allowed ⚠️';
-      $('#error-message').text(error).css({"border": "2px solid red"}).hide().slideDown();
+      $('#error-message').text(error).css({"border": "2px solid red", "margin": "1.2em", "text": "center"}).hide().slideDown();
     } else {
       $.post('/tweets', $( this ).serialize()).done( function(data) {
         $('#tweet-text').val('');
@@ -89,6 +89,23 @@ $(document).ready( () => {
     }
     
   })
+  // console.log($('nav a'));
+  // $('nav a').click( function (evt) {
+  //   const $newTweet = `
+  //     <section class='new-tweet'>
+  //       <p id='error-message'></p>
+  //       <form method='POST' action='/tweets'>
+  //         <label for='tweet-text'>What are you humming about?</label>
+  //         <textarea name='text' id='tweet-text'></textarea>
+  //         <div>
+  //           <button type='submit'>Tweet</button>
+  //           <output name='counter' class='counter' for='tweet-text'>140</output>
+  //         </div>
+  //       </form>
+  //     </section> `
+  //   $('.container').prepend($newTweet);
+       
+  // })
   const loadTweets = function() {
     $.ajax('/tweets', { method: 'GET' })
     .then(function (response) {
