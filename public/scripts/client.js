@@ -13,6 +13,7 @@ $(document).ready( () => {
     return div.innerHTML;
   }
   const createTweetElement = function (tweetObj) {
+    const time = moment.utc(tweetObj.created_at).fromNow();
     const $tweet = `
       <article class="tweet">
         <header>
@@ -26,7 +27,7 @@ $(document).ready( () => {
           <p>${escape(tweetObj.content.text)}</p>
         </main>
         <footer>
-          <p>${escape(tweetObj.created_at)}</p>
+          <p>${escape(time)}</p>
           <p>little logos</p>
         </footer>
       </article>`
