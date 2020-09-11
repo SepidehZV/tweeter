@@ -7,6 +7,9 @@
 
 $(document).ready( () => {
   console.log("everything is ready!");
+  console.log($('.new-tweet'));
+  $('.new-tweet').hide();
+
 
   const escape =  function(str) {
     let div = document.createElement('div');
@@ -71,5 +74,10 @@ $(document).ready( () => {
     });
   };
   loadTweets();
+  $('#compose-tweet').click( function(evt) {
+    console.log("the button clicked!");
+    $('.new-tweet').toggle();
+    
+  })
   
 });
